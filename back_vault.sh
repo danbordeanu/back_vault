@@ -83,7 +83,7 @@ else
 fi
 
 # Construct the lftp command
-lftp  sftp://$loadBalancerIP:$externalSFTPPort -e "mirror -R $backupDirectory $uploadDirectory; exit"
+lftp  sftp://$loadBalancerIP:$externalSFTPPort -e "put $backupDirectory/backup_${current_date}_${current_time}.zip; exit"
 
 # Check if lftp executed successfully
 if [ $? -eq 0 ]; then
